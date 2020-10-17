@@ -1,0 +1,1 @@
+class BaseORM: pass
