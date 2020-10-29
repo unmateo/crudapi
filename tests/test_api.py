@@ -1,17 +1,11 @@
-from crudapi.api import CrudAPI
 
 
-def test_read(app, client, BookRequest, BookResponse):
+def test_read_all(client):
 
-    crud = CrudAPI(request=BookRequest, response=BookResponse)
-
-    app.include_router(crud, prefix="/users")
-
-    get_all = client.get("/users").json()
+    get_all = client.get("/books").json()
     assert get_all == []
 
-    import pdb; pdb.set_trace() # DEBUG
+def test_read_one(client):
 
-    get_one = client.get("/users/sarasa").json()
+    get_one = client.get("/books/sarasa").json()
     assert get_one == {'id': 'sarasa', 'title': 'titulo'}
-

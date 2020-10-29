@@ -3,15 +3,7 @@ from fastapi.testclient import TestClient
 from pydantic import BaseModel
 from pytest import fixture
 
-
-@fixture
-def app():
-    return FastAPI()
-
-
-@fixture
-def client(app):
-    return TestClient(app)
+from crudapi.api import CrudAPI
 
 
 @fixture
@@ -30,3 +22,15 @@ def BookResponse(BookRequest):
         id: str
     
     return BookResponse
+
+
+@fixture
+def app(BookRequest, BookResponse):
+    app = FastAPI()
+    crud = CrudAPI(request=BookRequest, response=BookResponse)
+    app.include_router(crud, prefix="/books")
+    return app
+
+@fixture
+def client(app):
+    return TestClient(app)
