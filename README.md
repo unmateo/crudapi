@@ -1,21 +1,15 @@
 CrudAPI: The easiest way to create your CRUD APIs
 =======
 
-Assuming you define your models BookAPI and BookORM in your module _books.models_, with this code snippet:
+Assuming you define your SQLAlchemy model BookORM in your module _books.models_, with this code snippet:
 
 ```python
 from crudapi import CrudAPI
-from fastapi import FastAPI
 
-from books.models import BookAPI
 from books.models import BookORM
 
 
-app = FastAPI()
-
-crud = CrudAPI(api=BookAPI, orm=BookORM)
-
-app.include_router(crud, prefix="/books", tags=["Book"])
+crud = CrudAPI(orm=BookORM, prefix="books")
 
 ```
 
@@ -48,4 +42,3 @@ We use Poetry for packaging and dependency management:
 We use Pytest for testing:
 
 `pytest`
-
