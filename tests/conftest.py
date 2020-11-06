@@ -1,9 +1,10 @@
-from fastapi import FastAPI
+from fastapi.applications import FastAPI
 from fastapi.testclient import TestClient
 from pydantic import BaseModel
 from pytest import fixture
 
 from crudapi.api import CrudAPI
+from crudapi.config import Config
 
 
 @fixture
@@ -25,11 +26,9 @@ def BookResponse(BookRequest):
 
 
 @fixture
-def app(BookRequest, BookResponse):
-    app = FastAPI()
-    crud = CrudAPI(request=BookRequest, response=BookResponse)
-    app.include_router(crud, prefix="/books")
-    return app
+def app():
+    return CrudAPI(prefix="/books")
+
 
 @fixture
 def client(app):

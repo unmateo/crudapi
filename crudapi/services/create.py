@@ -1,3 +1,4 @@
 class CreateService:
     
-    def create(self, model): pass
+    def create(self, model, *args, **kwargs): raise NotImplementedError()
+

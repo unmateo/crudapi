@@ -1,19 +1,17 @@
-from fastapi.routing import APIRouter
+from fastapi import FastAPI
 
-from crudapi.routers.read import ReadRouter
-from crudapi.services.read import ReadService
+from crudapi.config import Config
+from crudapi.routers.search import search
 
-class CrudAPI(APIRouter):
+
+class CrudAPI(FastAPI):
 
     def __init__(
         self,
-        request,
-        response,
-        read_router=ReadRouter,
-        read_service=ReadService,
+        prefix: str = "/",
+        config: Config = Config(),
         *args,
         **kwargs
     ):
         super().__init__(*args, **kwargs)
-        read = read_router(service=read_service(), request=request, response=response)
-        self.include_router(read)
+        self.include_router(search, prefix=prefix)

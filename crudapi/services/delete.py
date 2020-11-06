@@ -1,4 +1,4 @@
 class DeleteService:
     
-    def delete(self, model): pass
+    def delete(self, model, *args, **kwargs): raise NotImplementedError()
 
