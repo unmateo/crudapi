@@ -9,19 +9,17 @@ from crudapi.config import Config
 
 @fixture
 def BookRequest():
-
     class BookRequest(BaseModel):
         title: str
-    
+
     return BookRequest
 
 
 @fixture
 def BookResponse(BookRequest):
-
     class BookResponse(BookRequest):
         id: str
-    
+
     return BookResponse
 
 
