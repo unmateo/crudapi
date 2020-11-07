@@ -1,9 +1,9 @@
 class SearchService:
+    def __init__(self, model):
+        self.model = model
+
     def get_one(self, id, *args, **kwargs):
-        raise NotImplementedError()
+        return {"id": "sarasa", "title": "titulo"}
 
     def get_all(self, *args, **kwargs):
-        raise NotImplementedError()
-
-    def get_by_filter(self, *args, **kwargs):
-        raise NotImplementedError()
+        return [{"id": "sarasa", "title": "titulo"}]

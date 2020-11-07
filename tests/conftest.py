@@ -24,8 +24,13 @@ def BookResponse(BookRequest):
 
 
 @fixture
-def app():
-    return CrudAPI(prefix="/books")
+def test_config():
+    return Config()
+
+
+@fixture
+def app(test_config):
+    return CrudAPI(prefix="/books", config=test_config)
 
 
 @fixture
