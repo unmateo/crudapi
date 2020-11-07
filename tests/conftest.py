@@ -1,36 +1,20 @@
-from fastapi.applications import FastAPI
 from fastapi.testclient import TestClient
-from pydantic import BaseModel
 from pytest import fixture
 
 from crudapi.api import CrudAPI
-from crudapi.config import Config
+from crudapi.models.base import BaseModel
+from crudapi.services.database import engine
+
+
+@fixture(scope="session")
+def renew_db():
+    BaseModel.metadata.drop_all(engine)
+    BaseModel.metadata.create_all(engine)
 
 
 @fixture
-def BookRequest():
-    class BookRequest(BaseModel):
-        title: str
-
-    return BookRequest
-
-
-@fixture
-def BookResponse(BookRequest):
-    class BookResponse(BookRequest):
-        id: str
-
-    return BookResponse
-
-
-@fixture
-def test_config():
-    return Config()
-
-
-@fixture
-def app(test_config):
-    return CrudAPI(prefix="/books", config=test_config)
+def app(renew_db):
+    return CrudAPI(prefix="/books")
 
 
 @fixture

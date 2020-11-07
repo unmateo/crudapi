@@ -1,16 +1,13 @@
 from functools import lru_cache
-from typing import Callable
 from typing import Optional
 
 from pydantic import BaseSettings
 
-from crudapi.defaults.model import Model
-
 
 class Config(BaseSettings):
 
-    DB_DSN: Optional[str] = "sqlite://"
-    MODEL: Callable = Model
+    DB_DSN: Optional[str] = "sqlite:///tests/test.db"
+    LOG_LEVEL: str = "INFO"
 
 
 @lru_cache()

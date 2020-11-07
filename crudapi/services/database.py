@@ -1,10 +1,9 @@
 from contextlib import contextmanager
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
 from sqlalchemy.orm import sessionmaker
 
-from crudapi.config import settings
+from crudapi.core.config import settings
 
 
 engine = create_engine(settings.DB_DSN)
@@ -17,9 +16,9 @@ def get_session():
     On exception, rollbacks session.
     On success, commits and closes session.
     """
+    maker = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+    session = maker()
     try:
-        maker = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-        session = maker()
         yield session
         session.commit()
     except:
@@ -27,13 +26,3 @@ def get_session():
         raise
     finally:
         session.close()
-
-
-def is_alive(db: Session) -> bool:
-    """ Returns a boolean indicating if given session is usable """
-
-    try:
-        db.execute("SELECT 1")
-        return True
-    except:
-        return False

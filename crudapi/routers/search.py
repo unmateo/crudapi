@@ -1,15 +1,14 @@
+from fastapi import Depends
 from fastapi.routing import APIRouter
 
-from crudapi.config import settings
+from crudapi.core.dependencies import db
 from crudapi.services.search import SearchService
 
 
 class SearchRouter(APIRouter):
-
-    service = SearchService(model=settings.MODEL)
-
-    def __init__(self, *args, **kwargs):
+    def __init__(self, model, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.service = SearchService(model)
         self.map_get_all()
         self.map_get_one()
 
@@ -19,12 +18,10 @@ class SearchRouter(APIRouter):
     def map_get_one(self):
         self.add_api_route(path="/{id}", methods={"GET"}, endpoint=self.get_one)
 
-    @classmethod
-    def get_all(cls):
+    def get_all(self, db=Depends(db)):
         """ """
-        return cls.service.get_all()
+        return self.service.get_all(db)
 
-    @classmethod
-    def get_one(cls, id: str):
+    def get_one(self, id: str, db=Depends(db)):
         """ """
-        return cls.service.get_one(id)
+        return self.service.get_one(db, id)
