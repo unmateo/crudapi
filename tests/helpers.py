@@ -23,4 +23,6 @@ def migrate_db():
 
 def create_app():
     migrate_db()
-    return CrudAPI(prefix="/books", orm_model=ModelORM, api_model=ModelAPI)
+    return CrudAPI(
+        prefix="/books", orm_model=ModelORM, api_model=ModelAPI, title="Books"
+    )
