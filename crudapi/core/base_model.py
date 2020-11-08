@@ -14,7 +14,13 @@ class BaseModel(Base):
 
     __abstract__ = True
 
-    id = Column(String, primary_key=True, default=uuid4, unique=True, nullable=False)
+    id = Column(
+        String,
+        primary_key=True,
+        default=lambda: str(uuid4()),
+        unique=True,
+        nullable=False,
+    )
     created = Column(DateTime(timezone=True), default=now)
     updated = Column(DateTime(timezone=True), default=now, onupdate=now)
 

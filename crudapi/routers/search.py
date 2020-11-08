@@ -16,7 +16,7 @@ class SearchRouter(APIRouter):
 
     def map_get_all(self, api_model):
         self.add_api_route(
-            path="/",
+            path="",
             methods={"GET"},
             endpoint=self.get_all,
             response_model=List[api_model],
