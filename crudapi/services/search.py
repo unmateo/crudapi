@@ -11,7 +11,7 @@ class SearchService:
         if not instance:
             message = f"Couldn't find {self.model.name()} with id {id}"
             logger.warning(message)
-            raise NotFound(message)
+            raise NotFound()
         return instance
 
     def get_all(self, db, *args, **kwargs):

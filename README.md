@@ -1,5 +1,4 @@
-CrudAPI: The easiest way to create your CRUD APIs
-=======
+# CrudAPI: The easiest way to create your CRUD APIs
 
 Assuming you define your SQLAlchemy model BookORM in your module _books.models_, with this code snippet:
 
@@ -23,15 +22,14 @@ you'll get, out of the box, a working _crudapi_ with all these working endpoints
 - DELETE: /books/:id:
 
 ---
+
 ## Persistance
 
 We provide a default SQLite/SQLAlchemy persistance layer, but you can easily replace it with your own implementation.
 
-
-
 ---
-## Development
 
+## Development
 
 We use Poetry for packaging and dependency management:
 
@@ -42,3 +40,7 @@ We use Poetry for packaging and dependency management:
 We use Pytest for testing:
 
 `pytest`
+
+You can start a testing server running:
+
+`uvicorn tests.server:app --reload `

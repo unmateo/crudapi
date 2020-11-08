@@ -1,20 +1,18 @@
 from fastapi.testclient import TestClient
 from pytest import fixture
 
-from crudapi.api import CrudAPI
-from crudapi.models.base import BaseModel
-from crudapi.services.database import engine
+from tests.helpers import create_app
+from tests.helpers import migrate_db
 
 
 @fixture(scope="session")
 def renew_db():
-    BaseModel.metadata.drop_all(engine)
-    BaseModel.metadata.create_all(engine)
+    migrate_db()
 
 
 @fixture
 def app(renew_db):
-    return CrudAPI(prefix="/books")
+    return create_app()
 
 
 @fixture
