@@ -1,6 +1,15 @@
-class UpdateService:
-    def update(self, model, fields, *args, **kwargs):
-        raise NotImplementedError()
+from crudapi.core.logging import logger
 
-    def patch(self, model, fields, *args, **kwargs):
-        raise NotImplementedError()
+
+class UpdateService:
+    def __init__(self, model):
+        self.model = model
+
+    def update(self, db, instance, fields, *args, **kwargs):
+        """ """
+        for key, value in fields.items():
+            setattr(instance, key, value)
+        db.flush()
+        db.refresh(instance)
+        logger.info(f"Updated {instance.name()} {instance.id}")
+        return instance

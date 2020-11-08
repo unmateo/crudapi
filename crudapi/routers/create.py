@@ -12,9 +12,12 @@ class CreateRouter(APIRouter):
         self.map_create(api_model)
 
     def map_create(self, api_model):
+        """ """
         self.add_api_route(path="", methods={"POST"}, endpoint=self.create(api_model))
 
     def create(self, api_model):
+        """ """
+
         def _create(model: api_model, db=Depends(db)):
             """ """
             return self.service.create(db, model)
