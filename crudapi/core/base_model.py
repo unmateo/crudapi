@@ -10,7 +10,7 @@ Base = declarative_base()
 now = datetime.utcnow
 
 
-class BaseModel(Base):
+class BaseORM(Base):
 
     __abstract__ = True
 

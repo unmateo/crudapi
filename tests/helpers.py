@@ -1,28 +1,56 @@
-from pydantic_sqlalchemy import sqlalchemy_to_pydantic
+from datetime import datetime
+
+from pydantic import BaseModel
 from sqlalchemy import Column
 from sqlalchemy import String
 
 from crudapi.api import CrudAPI
-from crudapi.core.base_model import BaseModel
+from crudapi.core.base_model import BaseORM
 from crudapi.services.database import engine
 
 
-class ModelORM(BaseModel):
+class BookORM(BaseORM):
 
     __tablename__ = "books"
     title = Column(String, nullable=False)
 
 
-ModelAPI = sqlalchemy_to_pydantic(ModelORM)
+class BookBase(BaseModel):
+    class Config:
+
+        orm_mode = True
+
+
+class BaseAPI(BookBase):
+    id: str
+    created: datetime
+    updated: datetime
+
+
+class BookCreate(BookBase):
+    title: str
+
+
+class BookUpdate(BookCreate):
+    pass
+
+
+class Book(BookCreate, BaseAPI):
+    pass
 
 
 def migrate_db():
-    ModelORM.metadata.drop_all(engine)
-    ModelORM.metadata.create_all(engine)
+    BookORM.metadata.drop_all(engine)
+    BookORM.metadata.create_all(engine)
 
 
 def create_app():
     migrate_db()
     return CrudAPI(
-        prefix="/books", orm_model=ModelORM, api_model=ModelAPI, title="Books"
+        prefix="/books",
+        orm_model=BookORM,
+        response_model=Book,
+        create_model=BookCreate,
+        update_model=BookUpdate,
+        title="Books",
     )
