@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from crudapi.core.config import Config
 from crudapi.routers.create import CreateRouter
+from crudapi.routers.delete import DeleteRouter
 from crudapi.routers.search import SearchRouter
 
 
@@ -21,4 +22,7 @@ class CrudAPI(FastAPI):
         )
         self.include_router(
             CreateRouter(orm_model=orm_model, api_model=api_model), prefix=prefix
+        )
+        self.include_router(
+            DeleteRouter(orm_model=orm_model, api_model=api_model), prefix=prefix
         )

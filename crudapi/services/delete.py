@@ -1,3 +1,12 @@
+from sqlalchemy.orm import Session
+
+
 class DeleteService:
-    def delete(self, model, *args, **kwargs):
-        raise NotImplementedError()
+    def __init__(self, model):
+        self.model = model
+
+    def delete(self, db: Session, model, *args, **kwargs):
+        """ """
+        db.delete(model)
+        db.flush()
+        return model
