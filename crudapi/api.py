@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from crudapi.core.database import check_connection
+from crudapi.core.logging import logger
 from crudapi.core.models import Update
 from crudapi.routers.create import CreateRouter
 from crudapi.routers.delete import DeleteRouter
@@ -41,3 +43,5 @@ class CrudAPI(FastAPI):
         self.include_router(delete, **commons)
         self.include_router(create, **commons)
         self.include_router(update, **commons)
+        self.add_event_handler("startup", check_connection)
+        logger.info("app started")
