@@ -6,7 +6,7 @@ from sqlalchemy import String
 
 from crudapi.api import CrudAPI
 from crudapi.core.base_model import BaseORM
-from crudapi.services.database import engine
+from crudapi.core.database import engine
 
 
 class BookORM(BaseORM):

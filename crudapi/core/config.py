@@ -2,12 +2,20 @@ from functools import lru_cache
 from typing import Optional
 
 from pydantic import BaseSettings
+from pydantic import Field
+
+
+class DatabaseConfig(BaseSettings):
+
+    url: str = Field("sqlite:///tests/test.db", env="DB_DSN")
+    pool_size: Optional[int] = Field(None, env="DB_POOL_SIZE")
+    pool_overflow: Optional[int] = Field(None, env="DB_POOL_OVERFLOW")
 
 
 class Config(BaseSettings):
 
-    DB_DSN: Optional[str] = "sqlite:///tests/test.db"
     LOG_LEVEL: str = "INFO"
+    DB: DatabaseConfig = DatabaseConfig()
 
 
 @lru_cache()

@@ -1,4 +1,4 @@
-from crudapi.services.database import get_session
+from crudapi.core.database import get_session
 
 
 def db():
