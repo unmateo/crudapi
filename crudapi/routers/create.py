@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from fastapi import Depends
 from fastapi.routing import APIRouter
 
@@ -18,6 +20,7 @@ class CreateRouter(APIRouter):
             methods={"POST"},
             endpoint=self.create(create_model),
             response_model=response_model,
+            status_code=HTTPStatus.CREATED,
         )
 
     def create(self, create_model):
