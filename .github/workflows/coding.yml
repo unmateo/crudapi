@@ -1,0 +1,45 @@
+name: coding
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  codecov:
+    runs-on: ubuntu-latest
+    steps:
+      #----------------------------------------------
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+      #----------------------------------------------
+    - name: Install Poetry
+      uses: snok/install-poetry@v1.1.0
+      with:
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+      #----------------------------------------------
+    - name: Load cached venv
+      id: cached-poetry-dependencies
+      uses: actions/cache@v2
+      with:
+        path: .venv
+        key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+      #----------------------------------------------
+    - name: Install dependencies
+      run: poetry install
+      if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+      #----------------------------------------------
+    - name: Validate code style with black
+      run: poetry run black .
+      #----------------------------------------------
+    - name: Test with pytest
+      run: poetry run pytest --cov=<project-dir> --cov-report=xml
+      #----------------------------------------------
+    - name: Upload coverage
+      uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage.xml
+        fail_ci_if_error: true
