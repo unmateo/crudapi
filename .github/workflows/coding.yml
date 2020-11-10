@@ -36,7 +36,7 @@ jobs:
       run: poetry run black .
       #----------------------------------------------
     - name: Test with pytest
-      run: poetry run pytest --cov=<project-dir> --cov-report=xml
+      run: poetry run pytest --cov=crudapi --cov-report=xml tests/
       #----------------------------------------------
     - name: Upload coverage
       uses: codecov/codecov-action@v1
