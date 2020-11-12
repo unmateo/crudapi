@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "crudapi"
-version = "0.1.0"
+version = "0.1.1"
 description = "The easiest way to create your Restful CRUD APIs"
 readme = "README.md"
 homepage = "https://github.com/unmateo/crudapi"
