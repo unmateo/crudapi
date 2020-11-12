@@ -1,4 +1,4 @@
-name: coding
+name: Testing
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - develop
 
 jobs:
-  codecov:
+  test:
     runs-on: ubuntu-latest
     steps:
       #----------------------------------------------
