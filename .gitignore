@@ -5,3 +5,4 @@ test.db
 *.pyc
 .coverage
 coverage.xml
+dist
