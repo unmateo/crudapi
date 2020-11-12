@@ -1,31 +1,36 @@
 # CrudAPI: The easiest way to create your CRUD APIs
 
-Assuming you define your SQLAlchemy model BookORM in your module _books.models_, with this code snippet:
+Combining the power of FastAPI, Pydantic and SQLAlchemy, you'll only have to care about modeling your data and we'll take care of building up a RESTful API for it.
 
 ```python
 from crudapi import CrudAPI
+from crudapi.models.api import BaseAPI
+from crudapi.models.orm import BaseORM
 
-from books.models import BookORM
+from sqlalchemy import Column
+from sqlalchemy import String
 
 
-crud = CrudAPI(orm=BookORM, prefix="books")
+class BookORM(BaseORM):
+
+    __tablename__ = "books"
+    title = Column(String, nullable=False)
+
+
+crud = CrudAPI(orm_model=BookORM)
 
 ```
 
-you'll get, out of the box, a working _crudapi_ with all these working endpoints:
+you'll get, out of the box, a working _crudapi_ with all these working REST endpoints:
 
 - GET: /books
 - POST: /books
-- GET: /books/:id:
-- PUT: /books/:id:
-- PATCH: /books/:id:
-- DELETE: /books/:id:
+- GET: /books/\<id>
+- PUT: /books/\<id>
+- PATCH: /books/\<id>
+- DELETE: /books/\<id>
 
----
-
-## Persistance
-
-We provide a default SQLite/SQLAlchemy persistance layer, but you can easily replace it with your own implementation.
+and because CrudAPI subclasses FastAPI you'll also get all the incredible features of this wonderful library.
 
 ---
 

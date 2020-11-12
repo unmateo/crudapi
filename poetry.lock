@@ -255,6 +255,21 @@ email = ["email-validator (>=1.0.3)"]
 typing_extensions = ["typing-extensions (>=3.7.2)"]
 
 [[package]]
+name = "pydantic-sqlalchemy"
+version = "0.0.7"
+description = "Tools to convert SQLAlchemy models to Pydantic models"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.dependencies]
+pydantic = ">=1.5.1,<2.0.0"
+sqlalchemy = ">=1.3.16,<2.0.0"
+
+[package.extras]
+dev = ["jupyter[dev] (>=1.0.0,<2.0.0)", "autoflake[dev] (>=1.3.1,<2.0.0)", "flake8[dev] (>=3.7.9,<4.0.0)"]
+
+[[package]]
 name = "pyparsing"
 version = "2.4.7"
 description = "Python parsing module"
@@ -453,7 +468,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "fe20faa501f879d64691d8e7e13a7fdca20e8f1295458e87f570315179fbd14a"
+content-hash = "a78d4b9864835950b038582cf09668f87fb48589815266df865e3b2a34c7476b"
 
 [metadata.files]
 appdirs = [
@@ -606,6 +621,10 @@ pydantic = [
     {file = "pydantic-1.7.2-cp39-cp39-win_amd64.whl", hash = "sha256:f045cf7afb3352a03bc6cb993578a34560ac24c5d004fa33c76efec6ada1361a"},
     {file = "pydantic-1.7.2-py3-none-any.whl", hash = "sha256:6665f7ab7fbbf4d3c1040925ff4d42d7549a8c15fe041164adfe4fc2134d4cce"},
     {file = "pydantic-1.7.2.tar.gz", hash = "sha256:c8200aecbd1fb914e1bd061d71a4d1d79ecb553165296af0c14989b89e90d09b"},
+]
+pydantic-sqlalchemy = [
+    {file = "pydantic-sqlalchemy-0.0.7.tar.gz", hash = "sha256:d518cfd2d61390bc214dfe7fae3c415685f213a6fd205e32aff03916a045d69a"},
+    {file = "pydantic_sqlalchemy-0.0.7-py3-none-any.whl", hash = "sha256:fcc082cd58f6f6c6a54d3b01a291e6cdb6cbf2c7291843085d2bf067c5dcaca7"},
 ]
 pyparsing = [
     {file = "pyparsing-2.4.7-py2.py3-none-any.whl", hash = "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"},

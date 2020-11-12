@@ -1,12 +1,11 @@
-from datetime import datetime
-
 from pydantic import BaseModel
 from sqlalchemy import Column
 from sqlalchemy import String
 
 from crudapi.api import CrudAPI
-from crudapi.core.base_model import BaseORM
 from crudapi.core.database import engine
+from crudapi.models.api import BaseAPI
+from crudapi.models.orm import BaseORM
 
 
 class BookORM(BaseORM):
@@ -15,19 +14,7 @@ class BookORM(BaseORM):
     title = Column(String, nullable=False)
 
 
-class BookBase(BaseModel):
-    class Config:
-
-        orm_mode = True
-
-
-class BaseAPI(BookBase):
-    id: str
-    created: datetime
-    updated: datetime
-
-
-class BookCreate(BookBase):
+class BookCreate(BaseModel):
     title: str
 
 
@@ -47,7 +34,6 @@ def migrate_db():
 def create_app():
     migrate_db()
     return CrudAPI(
-        prefix="/books",
         orm_model=BookORM,
         response_model=Book,
         create_model=BookCreate,

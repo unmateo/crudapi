@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from pydantic_sqlalchemy import sqlalchemy_to_pydantic
 
 from crudapi.core.database import check_connection
 from crudapi.core.logging import logger
@@ -13,14 +14,18 @@ class CrudAPI(FastAPI):
     def __init__(
         self,
         orm_model,
-        response_model,
+        response_model=None,
         create_model=None,
         update_model=None,
-        prefix: str = "/",
+        prefix: str = None,
         *args,
-        **kwargs
+        **kwargs,
     ):
         super().__init__(*args, **kwargs)
+        if prefix is None:
+            prefix = f"/{orm_model.__tablename__}"
+        if response_model is None:
+            response_model = sqlalchemy_to_pydantic(orm_model)
         commons = {
             "prefix": prefix,
             "tags": [kwargs.get("title", "default")],

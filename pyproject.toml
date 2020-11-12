@@ -8,6 +8,7 @@ authors = ["Mateo Harfuch <mharfuch@gmail.com>"]
 python = "^3.9"
 fastapi = "^0.61.1"
 SQLAlchemy = "^1.3.20"
+pydantic-sqlalchemy = "^0.0.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
