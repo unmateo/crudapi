@@ -1,7 +1,11 @@
 [tool.poetry]
 name = "crudapi"
 version = "0.1.0"
-description = ""
+description = "The easiest way to create your Restful CRUD APIs"
+readme = "README.md"
+homepage = "https://github.com/unmateo/crudapi"
+repository = "https://github.com/unmateo/crudapi"
+documentation = "https://github.com/unmateo/crudapi"
 authors = ["Mateo Harfuch <mharfuch@gmail.com>"]
 
 [tool.poetry.dependencies]
