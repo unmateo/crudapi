@@ -1,5 +1,9 @@
 # CrudAPI: The easiest way to create your CRUD APIs
 
+[![codecov](https://codecov.io/gh/unmateo/crudapi/branch/develop/graph/badge.svg?token=RAKVPGHZU5)](https://codecov.io/gh/unmateo/crudapi)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![PyPI version](https://badge.fury.io/py/crudapi.svg)](https://badge.fury.io/py/crudapi)
+
 Combining the power of FastAPI, Pydantic and SQLAlchemy, you'll only have to care about modeling your data and we'll take care of building up a RESTful API for it.
 
 ```python
