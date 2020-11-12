@@ -7,7 +7,7 @@ from pydantic import Field
 
 class DatabaseConfig(BaseSettings):
 
-    url: str = Field("sqlite:///tests/test.db", env="DB_DSN")
+    url: str = Field("sqlite:///tests/test.db?check_same_thread=false", env="DB_DSN")
     pool_size: Optional[int] = Field(None, env="DB_POOL_SIZE")
     pool_overflow: Optional[int] = Field(None, env="DB_POOL_OVERFLOW")
 
