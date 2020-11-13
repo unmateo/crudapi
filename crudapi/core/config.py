@@ -4,6 +4,9 @@ from typing import Optional
 from pydantic import BaseSettings
 from pydantic import Field
 
+from crudapi.core.types import QueryLimit
+from crudapi.core.types import QueryOffset
+
 
 class DatabaseConfig(BaseSettings):
 
@@ -16,6 +19,8 @@ class Config(BaseSettings):
 
     LOG_LEVEL: str = "INFO"
     DB: DatabaseConfig = DatabaseConfig()
+    DEFAULT_LIMIT: QueryLimit = 10
+    DEFAULT_OFFSET: QueryOffset = 0
 
 
 @lru_cache()

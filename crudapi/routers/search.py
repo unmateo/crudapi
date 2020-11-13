@@ -4,6 +4,7 @@ from fastapi import Depends
 from fastapi.routing import APIRouter
 
 from crudapi.core.dependencies import db
+from crudapi.core.paginator import BasePaginator
 from crudapi.services.search import SearchService
 
 
@@ -30,9 +31,10 @@ class SearchRouter(APIRouter):
             response_model=response_model,
         )
 
-    def get_all(self, db=Depends(db)):
+    def get_all(self, paginator: BasePaginator = Depends(), db=Depends(db)):
         """ """
-        return self.service.get_all(db)
+        resources = self.service.get_all(db, paginator)
+        return resources
 
     def get_one(self, id: str, db=Depends(db)):
         """ """
