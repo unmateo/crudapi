@@ -9,18 +9,17 @@ documentation = "https://github.com/unmateo/crudapi"
 authors = ["Mateo Harfuch <mharfuch@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
 fastapi = "^0.68.1"
-SQLAlchemy = "^1.4.23"
-pydantic-sqlalchemy = "^0.0.9"
+python = "^3.9"
+sqlmodel = "^0.0.4"
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.2.5"
-requests = "^2.26.0"
-pre-commit = "^2.15.0"
 black = "^21.9b0"
-uvicorn = "^0.15.0"
+pre-commit = "^2.15.0"
+pytest = "^6.2.5"
 pytest-cov = "^2.12.1"
+requests = "^2.26.0"
+uvicorn = "^0.15.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

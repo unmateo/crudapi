@@ -1,28 +1,29 @@
 from datetime import datetime
+from typing import Optional
 from uuid import uuid4
 
 from sqlalchemy import Column
 from sqlalchemy import DateTime
-from sqlalchemy import String
-from sqlalchemy.ext.declarative import declarative_base
+from sqlmodel import Field
+from sqlmodel import SQLModel
 
-Base = declarative_base()
+
+def uuid():
+    return str(uuid4())
+
+
 now = datetime.utcnow
 
 
-class BaseORM(Base):
+class BaseORM(SQLModel, table=False):
 
-    __abstract__ = True
-
-    id = Column(
-        String,
-        primary_key=True,
-        default=lambda: str(uuid4()),
-        unique=True,
-        nullable=False,
+    id: str = Field(default_factory=uuid, primary_key=True)
+    created_at: Optional[datetime] = Field(
+        sa_column=Column(DateTime, default=now, nullable=False)
     )
-    created = Column(DateTime(timezone=True), default=now)
-    updated = Column(DateTime(timezone=True), default=now, onupdate=now)
+    updated_at: Optional[datetime] = Field(
+        sa_column=Column(DateTime, default=now, onupdate=now)
+    )
 
     def __repr__(self) -> str:
         return str(self.id)

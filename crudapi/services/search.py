@@ -24,7 +24,7 @@ class SearchService:
         """ """
         resources = (
             db.query(self.model)
-            .order_by(self.model.created.desc())
+            .order_by(self.model.created_at.desc())
             .limit(paginator.limit)
             .offset(paginator.offset)
             .all()

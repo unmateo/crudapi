@@ -1,3 +1,5 @@
+from uuid import uuid4
+
 from fastapi.testclient import TestClient
 from pytest import fixture
 
@@ -18,3 +20,8 @@ def app(renew_db):
 @fixture
 def client(app):
     return TestClient(app)
+
+
+@fixture
+def uuid():
+    return uuid4()

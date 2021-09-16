@@ -13,9 +13,9 @@ def test_search_one(client):
     assert searched.json() == created
 
 
-def test_search_one_not_found_returns_404(client):
+def test_search_one_not_found_returns_404(client, uuid):
 
-    response = client.get("/books/sarasa")
+    response = client.get(f"/books/{uuid}")
     assert response.status_code == 404
 
 
@@ -34,9 +34,11 @@ def test_paginator(client):
 
 def test_default_paginator(client):
 
+    books = []
     for i in range(20):
         model = {"title": f"{i}"}
-        client.post("/books", json=model).json()
+        book = client.post("/books", json=model).json()
+        books.append(book)
 
     searched = client.get(f"/books").json()
 

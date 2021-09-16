@@ -12,7 +12,7 @@ def test_delete(client):
     assert response.status_code == 404
 
 
-def test_delete_not_found_returns_404(client):
+def test_delete_not_found_returns_404(client, uuid):
 
-    response = client.delete("/books/sarasa")
+    response = client.delete(f"/books/{uuid}")
     assert response.status_code == 404
