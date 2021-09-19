@@ -1,12 +1,15 @@
 from sqlalchemy.orm import Session
 
+from crudapi.core.logging import logger
+
 
 class DeleteService:
     def __init__(self, model):
         self.model = model
 
-    def delete(self, db: Session, model, *args, **kwargs):
+    def delete(self, db: Session, instance, *args, **kwargs):
         """ """
-        db.delete(model)
+        db.delete(instance)
         db.flush()
-        return model
+        logger.info(f"Deleted {instance}")
+        return instance

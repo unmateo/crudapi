@@ -2,10 +2,10 @@ from sqlmodel import Field
 
 from crudapi.api import CrudAPI
 from crudapi.core.database import engine
-from crudapi.models.orm import BaseORM
+from crudapi.models.base import BaseModel
 
 
-class Book(BaseORM, table=True):
+class Book(BaseModel, table=True):
 
     __tablename__ = "books"
 

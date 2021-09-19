@@ -9,13 +9,13 @@ Combining the power of FastAPI, Pydantic and SQLAlchemy, you'll only have to car
 ```python
 from crudapi import CrudAPI
 from crudapi.models.api import BaseAPI
-from crudapi.models.orm import BaseORM
+from crudapi.models.base import BaseModel
 
 from sqlalchemy import Column
 from sqlalchemy import String
 
 
-class BookORM(BaseORM):
+class BookORM(BaseModel):
 
     __tablename__ = "books"
     title = Column(String, nullable=False)

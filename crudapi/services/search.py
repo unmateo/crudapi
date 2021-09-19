@@ -3,17 +3,17 @@ from sqlalchemy.orm import Session
 from crudapi.core.exceptions import NotFound
 from crudapi.core.logging import logger
 from crudapi.core.paginator import BasePaginator
-from crudapi.models.orm import BaseORM
+from crudapi.models.base import BaseModel
 
 
 class SearchService:
-    def __init__(self, model: BaseORM):
+    def __init__(self, model: BaseModel):
         self.model = model
 
     def get_one(self, db, id, *args, **kwargs):
         instance = db.query(self.model).get(id)
         if not instance:
-            message = f"Couldn't find {self.model.name()} with id {id}"
+            message = f"Couldn't find {instance}"
             logger.warning(message)
             raise NotFound()
         return instance

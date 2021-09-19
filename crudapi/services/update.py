@@ -11,5 +11,5 @@ class UpdateService:
             setattr(instance, key, value)
         db.flush()
         db.refresh(instance)
-        logger.info(f"Updated {instance.name()} {instance.id}")
+        logger.info(f"Updated {instance}")
         return instance

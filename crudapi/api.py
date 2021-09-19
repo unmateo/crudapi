@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 from crudapi.core.database import check_connection
 from crudapi.core.logging import logger
-from crudapi.core.models import Update
+from crudapi.models.update import UpdateModel
 from crudapi.routers.create import CreateRouter
 from crudapi.routers.delete import DeleteRouter
 from crudapi.routers.search import SearchRouter
@@ -28,7 +28,7 @@ class CrudAPI(FastAPI):
             "tags": [kwargs.get("title", "default")],
         }
         create_model = create_model or response_model
-        update_model = update_model or Update(create_model)
+        update_model = update_model or UpdateModel(create_model)
         search = SearchRouter(orm_model=orm_model, response_model=response_model)
         delete = DeleteRouter(orm_model=orm_model, response_model=response_model)
         create = CreateRouter(
