@@ -1,15 +1,27 @@
+from typing import Optional
+
 from sqlmodel import Field
+from sqlmodel import SQLModel
 
 from crudapi.api import CrudAPI
 from crudapi.core.database import engine
 from crudapi.models.base import BaseModel
 
 
-class Book(BaseModel, table=True):
+class BookUpdate(SQLModel, table=False):
 
-    __tablename__ = "books"
+    description: Optional[str] = Field(nullable=True)
+    review: Optional[str] = Field(nullable=True)
+
+
+class BookCreate(BookUpdate):
 
     title: str = Field(nullable=False)
+
+
+class Book(BookCreate, BaseModel, table=True):
+
+    __tablename__ = "books"
 
 
 def migrate_db():
@@ -21,8 +33,8 @@ def create_app():
     migrate_db()
     return CrudAPI(
         orm_model=Book,
-        response_model=Book,
-        create_model=Book,
-        update_model=Book,
+        response_model=Book,  # Retrieve all fields
+        create_model=BookCreate,
+        update_model=BookUpdate,
         title="Books",
     )
