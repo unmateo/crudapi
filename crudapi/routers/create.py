@@ -21,13 +21,14 @@ class CreateRouter(APIRouter):
             endpoint=self.create(create_model),
             response_model=response_model,
             status_code=HTTPStatus.CREATED,
+            summary="Create an instance.",
         )
 
     def create(self, create_model):
         """ """
 
         def _create(model: create_model, db=Depends(db)):
-            """ """
+            """Create an instance."""
             return self.service.create(db, model)
 
         return _create

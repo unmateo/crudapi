@@ -20,9 +20,10 @@ class DeleteRouter(APIRouter):
             methods={"DELETE"},
             endpoint=self.delete,
             response_model=response_model,
+            summary="Delete an instance.",
         )
 
     def delete(self, id: str, db=Depends(db)):
-        """ """
+        """Delete an instance."""
         instance = self.search_service.get_one(db, id)
         return self.delete_service.delete(db, instance)

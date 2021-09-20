@@ -20,10 +20,11 @@ class UpdateRouter(APIRouter):
             methods={"PATCH"},
             endpoint=self.patch(update_model),
             response_model=response_model,
+            summary="Update an instance.",
         )
 
     def patch(self, update_model):
-        """ """
+        """Update an instance."""
 
         def _patch(id: str, fields: update_model, db=Depends(db)):
             instance = self.search_service.get_one(db, id)

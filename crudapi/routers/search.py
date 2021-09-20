@@ -21,6 +21,7 @@ class SearchRouter(APIRouter):
             methods={"GET"},
             endpoint=self.get_all,
             response_model=List[response_model],
+            summary="Retrieve all instances.",
         )
 
     def map_get_one(self, response_model):
@@ -29,13 +30,14 @@ class SearchRouter(APIRouter):
             methods={"GET"},
             endpoint=self.get_one,
             response_model=response_model,
+            summary="Retrieve one instance.",
         )
 
     def get_all(self, paginator: BasePaginator = Depends(), db=Depends(db)):
-        """ """
+        """Retrieve all instances with pagination."""
         resources = self.service.get_all(db, paginator)
         return resources
 
     def get_one(self, id: str, db=Depends(db)):
-        """ """
+        """Retrieve an instance."""
         return self.service.get_one(db, id)
