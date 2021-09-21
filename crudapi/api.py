@@ -20,12 +20,14 @@ class CrudAPI(FastAPI):
         *args,
         **kwargs,
     ):
-        super().__init__(*args, **kwargs)
+        table = orm_model.__tablename__.capitalize()
+        title = kwargs.pop("title", None) or table
+        super().__init__(*args, title=title, **kwargs)
         prefix = prefix or f"/{orm_model.__tablename__}"
         response_model = response_model or orm_model
         commons = {
             "prefix": prefix,
-            "tags": [kwargs.get("title", "default")],
+            "tags": [table],
         }
         create_model = create_model or response_model
         update_model = update_model or UpdateModel(create_model)

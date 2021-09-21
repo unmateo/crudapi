@@ -36,5 +36,4 @@ def create_app():
         response_model=Book,  # Retrieve all fields
         create_model=BookCreate,
         update_model=BookUpdate,
-        title="Books",
     )
