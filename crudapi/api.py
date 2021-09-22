@@ -42,6 +42,7 @@ class CrudAPI(FastAPI):
             orm_model=orm_model,
             response_model=response_model,
             update_model=update_model,
+            create_model=create_model,
         )
         self.include_router(search, **commons)
         self.include_router(delete, **commons)

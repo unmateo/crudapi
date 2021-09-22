@@ -47,6 +47,7 @@ you'll get, out of the box, a working _crudapi_ with all these working REST endp
 - POST: /books
 - GET: /books/\<id>
 - PATCH: /books/\<id>
+- PUT: /books/\<id>
 - DELETE: /books/\<id>
 
 and because CrudAPI subclasses FastAPI you'll also get all the incredible features of this wonderful library, including automatic OpenAPI schema generation and a working [SwaggerUI](https://swagger.io/tools/swagger-ui/):
