@@ -10,6 +10,7 @@
                 "tests.server:app",
                 "--reload"
             ],
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
