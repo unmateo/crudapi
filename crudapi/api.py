@@ -17,7 +17,7 @@ class CrudAPI(FastAPI):
     ):
         table = orm_model.__tablename__
         title = table.capitalize()
-        if self.title is "FastAPI":
+        if self.title == "FastAPI":
             self.title = title
         response_model = response_model or orm_model
         commons = {
