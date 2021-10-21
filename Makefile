@@ -6,4 +6,4 @@ install:
 lint:
 	poetry run black .
 test:
-	pwd && dotenv run poetry run pytest --cov=crudapi --cov-report=xml tests/
+	pwd && ls && dotenv run poetry run pytest --cov=crudapi --cov-report=xml tests/
