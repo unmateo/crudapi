@@ -32,12 +32,11 @@ class Book(BookCreate, BaseModel, table=True):
     __tablename__ = "books"
 
 
-crud =  CrudAPI(
+crud =  CrudAPI()
+crud.include_model(
     orm_model=Book,
-    response_model=Book,
     create_model=BookCreate,
     update_model=BookUpdate,
-    title="Books",
 )
 ```
 
