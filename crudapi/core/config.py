@@ -10,9 +10,10 @@ from crudapi.core.types import QueryOffset
 
 class DatabaseConfig(BaseSettings):
 
-    url: str = Field("sqlite:///tests/test.db?check_same_thread=false", env="DB_DSN")
+    url: str = Field(env="DB_DSN")
     pool_size: Optional[int] = Field(None, env="DB_POOL_SIZE")
     pool_overflow: Optional[int] = Field(None, env="DB_POOL_OVERFLOW")
+    echo: bool = Field(False, env="DB_ECHO")
 
 
 class Config(BaseSettings):

@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - develop
+env:
+  DB_DSN: sqlite:///tests/test.db?check_same_thread=false
+  DB_ECHO: True
 
 jobs:
   test:
@@ -29,14 +32,14 @@ jobs:
         key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
       #----------------------------------------------
     - name: Install dependencies
-      run: poetry install
+      run: make install
       if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       #----------------------------------------------
     - name: Validate code style with black
-      run: poetry run black .
+      run: make lint
       #----------------------------------------------
     - name: Test with pytest
-      run: poetry run pytest --cov=crudapi --cov-report=xml tests/
+      run: make test
       #----------------------------------------------
     - name: Upload coverage
       uses: codecov/codecov-action@v1

@@ -1,4 +1,4 @@
-from tests.helpers import create_app
+from tests.helpers import multiapp
 
 
-app = create_app()
+app = multiapp()

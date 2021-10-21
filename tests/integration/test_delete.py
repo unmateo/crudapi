@@ -1,7 +1,7 @@
 def test_delete(client):
 
     # creates
-    model = {"title": "APIs for dummies"}
+    model = {"title": "APIs for dummies", "author_id": "sarasa"}
     created = client.post("/books", json=model).json()
     id = created.get("id")
     # deletes

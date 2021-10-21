@@ -6,7 +6,7 @@ def test_search_all(client):
 
 def test_search_one(client):
 
-    model = {"title": "APIs for dummies"}
+    model = {"title": "APIs for dummies", "author_id": "sarasa"}
     created = client.post("/books", json=model).json()
     id = created.get("id")
     searched = client.get(f"/books/{id}")
@@ -21,11 +21,11 @@ def test_search_one_not_found_returns_404(client, uuid):
 
 def test_paginator(client):
 
-    model_1 = {"title": "APIs for dummies"}
-    model_2 = {"title": "Great APIs for dummies"}
+    model_1 = {"title": "APIs for dummies", "author_id": "sarasa"}
+    model_2 = {"title": "Great APIs for dummies", "author_id": "sarasa"}
 
     created_1 = client.post("/books", json=model_1).json()
-    created_2 = client.post("/books", json=model_2).json()
+    client.post("/books", json=model_2).json()
 
     searched = client.get(f"/books?limit=1&offset=1")
 
@@ -36,7 +36,7 @@ def test_default_paginator(client):
 
     books = []
     for i in range(20):
-        model = {"title": f"{i}"}
+        model = {"title": f"{i}", "author_id": "sarasa"}
         book = client.post("/books", json=model).json()
         books.append(book)
 
