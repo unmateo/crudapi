@@ -1,0 +1,684 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Library",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/authors": {
+            "get": {
+                "tags": ["Authors"],
+                "summary": "Retrieve all instances.",
+                "description": "Retrieve all instances with pagination.",
+                "operationId": "method_authors_get",
+                "parameters": [{
+                    "required": false,
+                    "schema": {
+                        "title": "Limit",
+                        "minimum": 0.0,
+                        "type": "integer",
+                        "default": 10
+                    },
+                    "name": "limit",
+                    "in": "query"
+                }, {
+                    "required": false,
+                    "schema": {
+                        "title": "Offset",
+                        "minimum": 0.0,
+                        "type": "integer",
+                        "default": 0
+                    },
+                    "name": "offset",
+                    "in": "query"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response Method Authors Get",
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Author"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Authors"],
+                "summary": "Create an instance.",
+                "description": "Create an instance.",
+                "operationId": "_create_authors_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AuthorCreate"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Author"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/authors/{id}": {
+            "get": {
+                "tags": ["Authors"],
+                "summary": "Retrieve one instance.",
+                "description": "Retrieve an instance.",
+                "operationId": "method_authors__id__get",
+                "parameters": [{
+                    "required": true,
+                    "schema": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "name": "id",
+                    "in": "path"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Author"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["Authors"],
+                "summary": "Replace an instance.",
+                "operationId": "_put_authors__id__put",
+                "parameters": [{
+                    "required": true,
+                    "schema": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "name": "id",
+                    "in": "path"
+                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AuthorCreate"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Authors"],
+                "summary": "Delete an instance.",
+                "description": "Delete an instance.",
+                "operationId": "method_authors__id__delete",
+                "parameters": [{
+                    "required": true,
+                    "schema": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "name": "id",
+                    "in": "path"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Author"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["Authors"],
+                "summary": "Update an instance.",
+                "operationId": "_patch_authors__id__patch",
+                "parameters": [{
+                    "required": true,
+                    "schema": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "name": "id",
+                    "in": "path"
+                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AuthorUpdate"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Author"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/books": {
+            "get": {
+                "tags": ["Books"],
+                "summary": "Retrieve all instances.",
+                "description": "Retrieve all instances with pagination.",
+                "operationId": "method_books_get",
+                "parameters": [{
+                    "required": false,
+                    "schema": {
+                        "title": "Limit",
+                        "minimum": 0.0,
+                        "type": "integer",
+                        "default": 10
+                    },
+                    "name": "limit",
+                    "in": "query"
+                }, {
+                    "required": false,
+                    "schema": {
+                        "title": "Offset",
+                        "minimum": 0.0,
+                        "type": "integer",
+                        "default": 0
+                    },
+                    "name": "offset",
+                    "in": "query"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response Method Books Get",
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Book"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Books"],
+                "summary": "Create an instance.",
+                "description": "Create an instance.",
+                "operationId": "_create_books_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BookCreate"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Book"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/books/{id}": {
+            "get": {
+                "tags": ["Books"],
+                "summary": "Retrieve one instance.",
+                "description": "Retrieve an instance.",
+                "operationId": "method_books__id__get",
+                "parameters": [{
+                    "required": true,
+                    "schema": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "name": "id",
+                    "in": "path"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Book"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["Books"],
+                "summary": "Replace an instance.",
+                "operationId": "_put_books__id__put",
+                "parameters": [{
+                    "required": true,
+                    "schema": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "name": "id",
+                    "in": "path"
+                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BookCreate"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Books"],
+                "summary": "Delete an instance.",
+                "description": "Delete an instance.",
+                "operationId": "method_books__id__delete",
+                "parameters": [{
+                    "required": true,
+                    "schema": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "name": "id",
+                    "in": "path"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Book"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["Books"],
+                "summary": "Update an instance.",
+                "operationId": "_patch_books__id__patch",
+                "parameters": [{
+                    "required": true,
+                    "schema": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "name": "id",
+                    "in": "path"
+                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BookUpdate"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Book"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Author": {
+                "title": "Author",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "title": "Created At",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "title": "Updated At",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    }
+                }
+            },
+            "AuthorCreate": {
+                "title": "AuthorCreate",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    }
+                }
+            },
+            "AuthorUpdate": {
+                "title": "AuthorUpdate",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    }
+                }
+            },
+            "Book": {
+                "title": "Book",
+                "required": ["title", "author_id"],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "title": "Created At",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "title": "Updated At",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "description": {
+                        "title": "Description",
+                        "type": "string"
+                    },
+                    "review": {
+                        "title": "Review",
+                        "type": "string"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "author_id": {
+                        "title": "Author Id",
+                        "type": "string"
+                    }
+                }
+            },
+            "BookCreate": {
+                "title": "BookCreate",
+                "required": ["title", "author_id"],
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "title": "Description",
+                        "type": "string"
+                    },
+                    "review": {
+                        "title": "Review",
+                        "type": "string"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "author_id": {
+                        "title": "Author Id",
+                        "type": "string"
+                    }
+                }
+            },
+            "BookUpdate": {
+                "title": "BookUpdate",
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "title": "Description",
+                        "type": "string"
+                    },
+                    "review": {
+                        "title": "Review",
+                        "type": "string"
+                    }
+                }
+            },
+            "HTTPValidationError": {
+                "title": "HTTPValidationError",
+                "type": "object",
+                "properties": {
+                    "detail": {
+                        "title": "Detail",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        }
+                    }
+                }
+            },
+            "ValidationError": {
+                "title": "ValidationError",
+                "required": ["loc", "msg", "type"],
+                "type": "object",
+                "properties": {
+                    "loc": {
+                        "title": "Location",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "msg": {
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "type": {
+                        "title": "Error Type",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,7 +1,11 @@
 def test_patch(client):
 
     # creates
-    model = {"description": "APIs for dummies", "title": "Magic APIs"}
+    model = {
+        "description": "APIs for dummies",
+        "title": "Magic APIs",
+        "author_id": "sarasa",
+    }
     created = client.post("/books", json=model).json()
     id = created.get("id")
     # patches
@@ -16,18 +20,24 @@ def test_patch(client):
 
 def test_patch_not_found_returns_404(client, uuid):
 
-    response = client.patch(f"/books/{uuid}", json={"title": "fake"})
+    response = client.patch(
+        f"/books/{uuid}", json={"title": "fake", "author_id": "sarasa"}
+    )
     assert response.status_code == 404
 
 
 def test_put(client):
 
     # creates
-    model = {"description": "APIs for dummies", "title": "Magic APIs"}
+    model = {
+        "description": "APIs for dummies",
+        "title": "Magic APIs",
+        "author_id": "sarasa",
+    }
     created = client.post("/books", json=model).json()
     id = created.get("id")
     # puts
-    fields = {"title": "APIs for experts"}
+    fields = {"title": "APIs for experts", "author_id": "sarasa"}
     patched = client.put(f"/books/{id}", json=fields).json()
     assert patched == 1
     # asserts
@@ -40,5 +50,7 @@ def test_put(client):
 
 def test_put_not_found_returns_404(client, uuid):
 
-    response = client.put(f"/books/{uuid}", json={"title": "fake"})
+    response = client.put(
+        f"/books/{uuid}", json={"title": "fake", "author_id": "sarasa"}
+    )
     assert response.status_code == 404
