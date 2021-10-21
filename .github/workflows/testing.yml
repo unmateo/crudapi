@@ -11,7 +11,6 @@ jobs:
     steps:
       #----------------------------------------------
     - uses: actions/checkout@v2
-    - uses: falti/dotenv-action@v0.2.7
     - uses: actions/setup-python@v2
       with:
         python-version: 3.9
@@ -30,14 +29,14 @@ jobs:
         key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
       #----------------------------------------------
     - name: Install dependencies
-      run: poetry install
+      run: make install
       if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       #----------------------------------------------
     - name: Validate code style with black
-      run: poetry run black .
+      run: make lint
       #----------------------------------------------
     - name: Test with pytest
-      run: poetry run pytest --cov=crudapi --cov-report=xml tests/
+      run: make test
       #----------------------------------------------
     - name: Upload coverage
       uses: codecov/codecov-action@v1
