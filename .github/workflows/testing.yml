@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - develop
+env:
+  DB_DSN: sqlite:///tests/test.db?check_same_thread=false
+  DB_ECHO: True
 
 jobs:
   test:

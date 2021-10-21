@@ -4,7 +4,10 @@ on:
   release:
     types:
       - created
-
+env:
+  PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+  DB_DSN: sqlite:///tests/test.db?check_same_thread=false
+  DB_ECHO: True
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -45,6 +48,5 @@ jobs:
         fail_ci_if_error: true
     - name: Publish
       env:
-        PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
       run: |
         poetry publish --build --username __token__ --password $PYPI_TOKEN
