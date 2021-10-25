@@ -1,16 +1,39 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
-            "name": "Python: CrudAPI",
+            "name": "Authors",
             "type": "python",
             "request": "launch",
             "module": "uvicorn",
             "args": [
-                "tests.server:app",
+                "samples.servers.authors:app",
                 "--reload"
             ],
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Books",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "samples.servers.books:app",
+                "--reload"
+            ],
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Library",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "samples.servers.library:app",
+                "--reload"
+            ],
+            "envFile": "${workspaceFolder}/.env",
         }
     ]
 }

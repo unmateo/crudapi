@@ -3,29 +3,24 @@ from uuid import uuid4
 from fastapi.testclient import TestClient
 from pytest import fixture
 
-from crudapi.api import CrudAPI
-from tests.helpers import include_authors
-from tests.helpers import include_books
-from tests.helpers import multiapp
+from samples.apps.authors import Authors
+from samples.apps.books import Books
+from samples.apps.library import Library
 
 
 @fixture
 def authors_app():
-    app = CrudAPI()
-    include_authors(app)
-    return app
+    return Authors()
 
 
 @fixture
 def books_app():
-    app = CrudAPI()
-    include_books(app)
-    return app
+    return Books()
 
 
 @fixture
 def app():
-    return multiapp()
+    return Library()
 
 
 @fixture
