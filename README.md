@@ -54,6 +54,15 @@ and because CrudAPI subclasses FastAPI you'll also get all the incredible featur
 ![SwaggerUI generated from demo code](./docs/demo.png "SwaggerUI")
 
 ---
+## Samples
+
+Under the _/samples_ directory you'll find some CrudAPIs to help you understand the included features of this library.
+
+Pay special attention to the definitions on _samples/models.py_ and how they relate to the automagically generated OpenAPI specification and APIs.
+
+We've also commited the _.vscode/launch.json_ configuration file. With it, if you are a VSCode user you'll be able to launch some test & debugging servers.
+
+---
 
 ## Development
 
