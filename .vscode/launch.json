@@ -34,6 +34,17 @@
                 "--reload"
             ],
             "envFile": "${workspaceFolder}/.env",
-        }
+        },
+        {
+            "name": "Full Library",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "samples.servers.full_library:app",
+                "--reload"
+            ],
+            "envFile": "${workspaceFolder}/.env",
+        },
     ]
 }
