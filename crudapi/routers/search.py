@@ -5,7 +5,7 @@ from fastapi.routing import APIRouter
 
 from crudapi.core.dependencies import db
 from crudapi.core.paginator import BasePaginator
-from crudapi.services.search import SearchService
+from crudapi.services import SearchService
 
 
 class SearchRouter(APIRouter):

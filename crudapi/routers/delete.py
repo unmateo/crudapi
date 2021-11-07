@@ -2,8 +2,8 @@ from fastapi import Depends
 from fastapi.routing import APIRouter
 
 from crudapi.core.dependencies import db
-from crudapi.services.delete import DeleteService
-from crudapi.services.search import SearchService
+from crudapi.services import DeleteService
+from crudapi.services import SearchService
 
 
 class DeleteRouter(APIRouter):

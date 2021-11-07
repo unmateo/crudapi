@@ -1,6 +1,6 @@
 from crudapi.core.database import engine
 from crudapi.core.database import get_session
-from crudapi.models.base import BaseModel
+from crudapi.models import BaseModel
 
 
 def renew_db():

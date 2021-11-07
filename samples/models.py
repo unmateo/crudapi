@@ -5,7 +5,7 @@ from sqlmodel import Field
 from sqlmodel import Relationship
 from sqlmodel import SQLModel
 
-from crudapi.models.base import BaseModel
+from crudapi.models import BaseModel
 
 
 class BookUpdate(SQLModel, table=False):

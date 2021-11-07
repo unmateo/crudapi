@@ -1,6 +1,6 @@
 from crudapi.core.database import get_session
 from crudapi.core.logging import logger
-from crudapi.services.create import CreateService
+from crudapi.services import CreateService
 from samples.models import Author
 from samples.models import AuthorCreate
 from samples.models import Book

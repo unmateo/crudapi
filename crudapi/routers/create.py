@@ -4,7 +4,7 @@ from fastapi import Depends
 from fastapi.routing import APIRouter
 
 from crudapi.core.dependencies import db
-from crudapi.services.create import CreateService
+from crudapi.services import CreateService
 
 
 class CreateRouter(APIRouter):

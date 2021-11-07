@@ -12,8 +12,8 @@ from typing import Optional
 from sqlmodel import Field
 from sqlmodel import SQLModel
 
-from crudapi.api import CrudAPI
-from crudapi.models.base import BaseModel
+from crudapi import CrudAPI
+from crudapi.models import BaseModel
 
 
 class BookUpdate(SQLModel, table=False):

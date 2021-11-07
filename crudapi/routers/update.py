@@ -2,19 +2,19 @@ from fastapi import Depends
 from fastapi.routing import APIRouter
 
 from crudapi.core.dependencies import db
-from crudapi.services.search import SearchService
-from crudapi.services.update import UpdateService
+from crudapi.services import SearchService
+from crudapi.services import UpdateService
 
 
 class UpdateRouter(APIRouter):
     def __init__(
-        self, orm_model, update_model, create_model, response_model, *args, **kwargs
+        self, orm_model, update_model, replace_model, response_model, *args, **kwargs
     ):
         super().__init__(*args, **kwargs)
         self.search_service = SearchService(orm_model)
         self.update_service = UpdateService(orm_model)
         self.map_patch(update_model, response_model)
-        self.map_put(create_model)
+        self.map_put(replace_model)
 
     def map_patch(self, update_model, response_model):
         """ """
@@ -26,12 +26,12 @@ class UpdateRouter(APIRouter):
             summary="Update an instance.",
         )
 
-    def map_put(self, create_model):
+    def map_put(self, replace_model):
         """ """
         self.add_api_route(
             path="/{id}",
             methods={"PUT"},
-            endpoint=self.put(create_model),
+            endpoint=self.put(replace_model),
             summary="Replace an instance.",
         )
 
@@ -46,10 +46,10 @@ class UpdateRouter(APIRouter):
 
         return _patch
 
-    def put(self, create_model):
+    def put(self, replace_model):
         """Replace an instance."""
 
-        def _put(id: str, fields: create_model, db=Depends(db)):
+        def _put(id: str, fields: replace_model, db=Depends(db)):
             return self.update_service.put(db, id, fields.dict())
 
         return _put
