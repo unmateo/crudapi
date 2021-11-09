@@ -52,7 +52,8 @@ class CrudAPI(FastAPI):
 
         Override this method if custom behavior is required.
         """
-        search = SearchRouter(orm_model=orm_model, response_model=response_model)
+        search = SearchRouter()
+        search.map_routes(orm_model=orm_model, response_model=response_model)
         self.include_router(search, **kwargs)
         self.crudapi_routers["search"] = search
         return search
@@ -62,7 +63,8 @@ class CrudAPI(FastAPI):
 
         Override this method if custom behavior is required.
         """
-        create = CreateRouter(
+        create = CreateRouter()
+        create.map_routes(
             orm_model=orm_model,
             response_model=response_model,
             create_model=create_model,
@@ -78,7 +80,8 @@ class CrudAPI(FastAPI):
 
         Override this method if custom behavior is required.
         """
-        update = UpdateRouter(
+        update = UpdateRouter()
+        update.map_routes(
             orm_model=orm_model,
             response_model=response_model,
             update_model=update_model,
@@ -93,7 +96,8 @@ class CrudAPI(FastAPI):
 
         Override this method if custom behavior is required.
         """
-        delete = DeleteRouter(orm_model=orm_model, response_model=response_model)
+        delete = DeleteRouter()
+        delete.map_routes(orm_model=orm_model, response_model=response_model)
         self.include_router(delete, **kwargs)
         self.crudapi_routers["delete"] = delete
         return delete

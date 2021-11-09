@@ -7,10 +7,9 @@ from crudapi.services import UpdateService
 
 
 class UpdateRouter(APIRouter):
-    def __init__(
-        self, orm_model, update_model, replace_model, response_model, *args, **kwargs
-    ):
-        super().__init__(*args, **kwargs)
+    """Augmented API Router with methods for generating default routes."""
+
+    def map_routes(self, orm_model, update_model, replace_model, response_model):
         self.search_service = SearchService(orm_model)
         self.update_service = UpdateService(orm_model)
         self.map_patch(update_model, response_model)
