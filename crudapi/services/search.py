@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from crudapi.core.exceptions import NotFound
 from crudapi.core.logging import logger
 from crudapi.core.paginator import BasePaginator
-from crudapi.models.base import BaseModel
+from crudapi.models import BaseModel
 
 
 class SearchService:

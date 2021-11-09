@@ -1,16 +1,17 @@
 from typing import List
 
+from fastapi import APIRouter
 from fastapi import Depends
-from fastapi.routing import APIRouter
 
 from crudapi.core.dependencies import db
 from crudapi.core.paginator import BasePaginator
-from crudapi.services.search import SearchService
+from crudapi.services import SearchService
 
 
 class SearchRouter(APIRouter):
-    def __init__(self, orm_model, response_model, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    """Augmented API Router with methods for generating default routes."""
+
+    def map_routes(self, orm_model, response_model):
         self.service = SearchService(orm_model)
         self.map_get_all(response_model=response_model)
         self.map_get_one(response_model=response_model)

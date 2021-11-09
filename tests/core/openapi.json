@@ -7,31 +7,35 @@
     "paths": {
         "/authors": {
             "get": {
-                "tags": ["Authors"],
+                "tags": [
+                    "Authors"
+                ],
                 "summary": "Retrieve all instances.",
                 "description": "Retrieve all instances with pagination.",
                 "operationId": "method_authors_get",
                 "parameters": [{
-                    "required": false,
-                    "schema": {
-                        "title": "Limit",
-                        "minimum": 0.0,
-                        "type": "integer",
-                        "default": 10
+                        "required": false,
+                        "schema": {
+                            "title": "Limit",
+                            "minimum": 0,
+                            "type": "integer",
+                            "default": 10
+                        },
+                        "name": "limit",
+                        "in": "query"
                     },
-                    "name": "limit",
-                    "in": "query"
-                }, {
-                    "required": false,
-                    "schema": {
-                        "title": "Offset",
-                        "minimum": 0.0,
-                        "type": "integer",
-                        "default": 0
-                    },
-                    "name": "offset",
-                    "in": "query"
-                }],
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Offset",
+                            "minimum": 0,
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "name": "offset",
+                        "in": "query"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -41,7 +45,7 @@
                                     "title": "Response Method Authors Get",
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/Author"
+                                        "$ref": "#/components/schemas/AuthorResponse"
                                     }
                                 }
                             }
@@ -60,7 +64,9 @@
                 }
             },
             "post": {
-                "tags": ["Authors"],
+                "tags": [
+                    "Authors"
+                ],
                 "summary": "Create an instance.",
                 "description": "Create an instance.",
                 "operationId": "_create_authors_post",
@@ -80,7 +86,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Author"
+                                    "$ref": "#/components/schemas/AuthorResponse"
                                 }
                             }
                         }
@@ -100,7 +106,9 @@
         },
         "/authors/{id}": {
             "get": {
-                "tags": ["Authors"],
+                "tags": [
+                    "Authors"
+                ],
                 "summary": "Retrieve one instance.",
                 "description": "Retrieve an instance.",
                 "operationId": "method_authors__id__get",
@@ -119,7 +127,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Author"
+                                    "$ref": "#/components/schemas/AuthorResponse"
                                 }
                             }
                         }
@@ -137,7 +145,9 @@
                 }
             },
             "put": {
-                "tags": ["Authors"],
+                "tags": [
+                    "Authors"
+                ],
                 "summary": "Replace an instance.",
                 "operationId": "_put_authors__id__put",
                 "parameters": [{
@@ -181,7 +191,9 @@
                 }
             },
             "delete": {
-                "tags": ["Authors"],
+                "tags": [
+                    "Authors"
+                ],
                 "summary": "Delete an instance.",
                 "description": "Delete an instance.",
                 "operationId": "method_authors__id__delete",
@@ -200,7 +212,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Author"
+                                    "$ref": "#/components/schemas/AuthorResponse"
                                 }
                             }
                         }
@@ -218,7 +230,9 @@
                 }
             },
             "patch": {
-                "tags": ["Authors"],
+                "tags": [
+                    "Authors"
+                ],
                 "summary": "Update an instance.",
                 "operationId": "_patch_authors__id__patch",
                 "parameters": [{
@@ -246,7 +260,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Author"
+                                    "$ref": "#/components/schemas/AuthorResponse"
                                 }
                             }
                         }
@@ -266,31 +280,35 @@
         },
         "/books": {
             "get": {
-                "tags": ["Books"],
+                "tags": [
+                    "Books"
+                ],
                 "summary": "Retrieve all instances.",
                 "description": "Retrieve all instances with pagination.",
                 "operationId": "method_books_get",
                 "parameters": [{
-                    "required": false,
-                    "schema": {
-                        "title": "Limit",
-                        "minimum": 0.0,
-                        "type": "integer",
-                        "default": 10
+                        "required": false,
+                        "schema": {
+                            "title": "Limit",
+                            "minimum": 0,
+                            "type": "integer",
+                            "default": 10
+                        },
+                        "name": "limit",
+                        "in": "query"
                     },
-                    "name": "limit",
-                    "in": "query"
-                }, {
-                    "required": false,
-                    "schema": {
-                        "title": "Offset",
-                        "minimum": 0.0,
-                        "type": "integer",
-                        "default": 0
-                    },
-                    "name": "offset",
-                    "in": "query"
-                }],
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Offset",
+                            "minimum": 0,
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "name": "offset",
+                        "in": "query"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -300,7 +318,7 @@
                                     "title": "Response Method Books Get",
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/Book"
+                                        "$ref": "#/components/schemas/BookResponse"
                                     }
                                 }
                             }
@@ -319,7 +337,9 @@
                 }
             },
             "post": {
-                "tags": ["Books"],
+                "tags": [
+                    "Books"
+                ],
                 "summary": "Create an instance.",
                 "description": "Create an instance.",
                 "operationId": "_create_books_post",
@@ -339,7 +359,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Book"
+                                    "$ref": "#/components/schemas/BookResponse"
                                 }
                             }
                         }
@@ -359,7 +379,9 @@
         },
         "/books/{id}": {
             "get": {
-                "tags": ["Books"],
+                "tags": [
+                    "Books"
+                ],
                 "summary": "Retrieve one instance.",
                 "description": "Retrieve an instance.",
                 "operationId": "method_books__id__get",
@@ -378,7 +400,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Book"
+                                    "$ref": "#/components/schemas/BookResponse"
                                 }
                             }
                         }
@@ -396,7 +418,9 @@
                 }
             },
             "put": {
-                "tags": ["Books"],
+                "tags": [
+                    "Books"
+                ],
                 "summary": "Replace an instance.",
                 "operationId": "_put_books__id__put",
                 "parameters": [{
@@ -440,7 +464,9 @@
                 }
             },
             "delete": {
-                "tags": ["Books"],
+                "tags": [
+                    "Books"
+                ],
                 "summary": "Delete an instance.",
                 "description": "Delete an instance.",
                 "operationId": "method_books__id__delete",
@@ -459,7 +485,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Book"
+                                    "$ref": "#/components/schemas/BookResponse"
                                 }
                             }
                         }
@@ -477,7 +503,9 @@
                 }
             },
             "patch": {
-                "tags": ["Books"],
+                "tags": [
+                    "Books"
+                ],
                 "summary": "Update an instance.",
                 "operationId": "_patch_books__id__patch",
                 "parameters": [{
@@ -505,7 +533,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Book"
+                                    "$ref": "#/components/schemas/BookResponse"
                                 }
                             }
                         }
@@ -526,8 +554,18 @@
     },
     "components": {
         "schemas": {
-            "Author": {
-                "title": "Author",
+            "AuthorCreate": {
+                "title": "AuthorCreate",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    }
+                }
+            },
+            "AuthorResponse": {
+                "title": "AuthorResponse",
                 "type": "object",
                 "properties": {
                     "id": {
@@ -547,16 +585,14 @@
                     "name": {
                         "title": "Name",
                         "type": "string"
-                    }
-                }
-            },
-            "AuthorCreate": {
-                "title": "AuthorCreate",
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "title": "Name",
-                        "type": "string"
+                    },
+                    "books": {
+                        "title": "Books",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BookWithoutAuthor"
+                        },
+                        "default": []
                     }
                 }
             },
@@ -570,9 +606,62 @@
                     }
                 }
             },
-            "Book": {
-                "title": "Book",
-                "required": ["title", "author_id"],
+            "AuthorWithoutBooks": {
+                "title": "AuthorWithoutBooks",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "title": "Created At",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "title": "Updated At",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    }
+                }
+            },
+            "BookCreate": {
+                "title": "BookCreate",
+                "required": [
+                    "title",
+                    "author_id"
+                ],
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "title": "Description",
+                        "type": "string"
+                    },
+                    "review": {
+                        "title": "Review",
+                        "type": "string"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "author_id": {
+                        "title": "Author Id",
+                        "type": "string"
+                    }
+                }
+            },
+            "BookResponse": {
+                "title": "BookResponse",
+                "required": [
+                    "title",
+                    "author_id"
+                ],
                 "type": "object",
                 "properties": {
                     "id": {
@@ -604,29 +693,9 @@
                     "author_id": {
                         "title": "Author Id",
                         "type": "string"
-                    }
-                }
-            },
-            "BookCreate": {
-                "title": "BookCreate",
-                "required": ["title", "author_id"],
-                "type": "object",
-                "properties": {
-                    "description": {
-                        "title": "Description",
-                        "type": "string"
                     },
-                    "review": {
-                        "title": "Review",
-                        "type": "string"
-                    },
-                    "title": {
-                        "title": "Title",
-                        "type": "string"
-                    },
-                    "author_id": {
-                        "title": "Author Id",
-                        "type": "string"
+                    "author": {
+                        "$ref": "#/components/schemas/AuthorWithoutBooks"
                     }
                 }
             },
@@ -640,6 +709,41 @@
                     },
                     "review": {
                         "title": "Review",
+                        "type": "string"
+                    }
+                }
+            },
+            "BookWithoutAuthor": {
+                "title": "BookWithoutAuthor",
+                "required": [
+                    "title"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "title": "Created At",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "title": "Updated At",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "description": {
+                        "title": "Description",
+                        "type": "string"
+                    },
+                    "review": {
+                        "title": "Review",
+                        "type": "string"
+                    },
+                    "title": {
+                        "title": "Title",
                         "type": "string"
                     }
                 }
@@ -659,7 +763,11 @@
             },
             "ValidationError": {
                 "title": "ValidationError",
-                "required": ["loc", "msg", "type"],
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
                 "type": "object",
                 "properties": {
                     "loc": {

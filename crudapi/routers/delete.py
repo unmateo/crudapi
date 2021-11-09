@@ -2,13 +2,14 @@ from fastapi import Depends
 from fastapi.routing import APIRouter
 
 from crudapi.core.dependencies import db
-from crudapi.services.delete import DeleteService
-from crudapi.services.search import SearchService
+from crudapi.services import DeleteService
+from crudapi.services import SearchService
 
 
 class DeleteRouter(APIRouter):
-    def __init__(self, orm_model, response_model, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    """Augmented API Router with methods for generating default routes."""
+
+    def map_routes(self, orm_model, response_model):
         self.delete_service = DeleteService(orm_model)
         self.search_service = SearchService(orm_model)
         self.map_delete(response_model)

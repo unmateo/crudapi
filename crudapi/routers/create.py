@@ -4,12 +4,13 @@ from fastapi import Depends
 from fastapi.routing import APIRouter
 
 from crudapi.core.dependencies import db
-from crudapi.services.create import CreateService
+from crudapi.services import CreateService
 
 
 class CreateRouter(APIRouter):
-    def __init__(self, orm_model, create_model, response_model, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    """Augmented API Router with methods for generating default routes."""
+
+    def map_routes(self, orm_model, create_model, response_model):
         self.service = CreateService(orm_model)
         self.map_create(create_model, response_model)
 

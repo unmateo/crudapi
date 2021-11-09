@@ -12,8 +12,8 @@ from typing import Optional
 from sqlmodel import Field
 from sqlmodel import SQLModel
 
-from crudapi.api import CrudAPI
-from crudapi.models.base import BaseModel
+from crudapi import CrudAPI
+from crudapi.models import BaseModel
 
 
 class BookUpdate(SQLModel, table=False):
@@ -32,12 +32,11 @@ class Book(BookCreate, BaseModel, table=True):
     __tablename__ = "books"
 
 
-crud =  CrudAPI(
+crud =  CrudAPI()
+crud.include_model(
     orm_model=Book,
-    response_model=Book,
     create_model=BookCreate,
     update_model=BookUpdate,
-    title="Books",
 )
 ```
 
@@ -53,6 +52,15 @@ you'll get, out of the box, a working _crudapi_ with all these working REST endp
 and because CrudAPI subclasses FastAPI you'll also get all the incredible features of this wonderful library, including automatic OpenAPI schema generation and a working [SwaggerUI](https://swagger.io/tools/swagger-ui/):
 
 ![SwaggerUI generated from demo code](./docs/demo.png "SwaggerUI")
+
+---
+## Samples
+
+Under the _/samples_ directory you'll find some CrudAPIs to help you understand the included features of this library.
+
+Pay special attention to the definitions on _samples/models.py_ and how they relate to the automagically generated OpenAPI specification and APIs.
+
+We've also commited the _.vscode/launch.json_ configuration file. With it, if you are a VSCode user you'll be able to launch some test & debugging servers.
 
 ---
 
