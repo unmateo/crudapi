@@ -27,19 +27,21 @@ class CrudAPI(FastAPI):
             "tags": [title],
         }
         self.crudapi_routers = {}
+        create_model = create_model or response_model
+        update_model = update_model or UpdateModel(create_model)
         self.search_router(
             orm_model=orm_model, response_model=response_model, **commons
         )
         self.create_router(
             orm_model=orm_model,
             response_model=response_model,
-            create_model=create_model or response_model,
+            create_model=create_model,
             **commons,
         )
         self.update_router(
             orm_model=orm_model,
             response_model=response_model,
-            update_model=update_model or UpdateModel(create_model),
+            update_model=update_model,
             replace_model=create_model,
             **commons,
         )
