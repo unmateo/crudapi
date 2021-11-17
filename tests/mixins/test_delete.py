@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 from pytest import fixture
 
-from crudapi.mixins import DeleteMixin
+from crudapi import DeleteMixin
 
 
 def test_delete_one(given_delete_mixin_app_client, db, TestModel):

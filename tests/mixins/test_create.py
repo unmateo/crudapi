@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 from pytest import fixture
 
-from crudapi.mixins import CreateMixin
+from crudapi import CreateMixin
 
 
 def test_create_one(given_create_mixin_app_client):

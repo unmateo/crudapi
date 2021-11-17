@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 from pytest import fixture
 
-from crudapi.mixins.search import SearchMixin
+from crudapi import SearchMixin
 
 
 def test_get_one(test_model, given_search_mixin_app_client):

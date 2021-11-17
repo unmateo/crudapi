@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 from pytest import fixture
 
-from crudapi.mixins import UpdateMixin
+from crudapi import UpdateMixin
 
 
 def test_update_one(test_model, given_update_mixin_app_client):
