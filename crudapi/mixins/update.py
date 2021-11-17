@@ -17,5 +17,4 @@ class UpdateMixin:
             replace_model=replace_model,
         )
         self.include_router(update, **kwargs)
-        self.crudapi_routers["update"] = update
         return update

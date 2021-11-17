@@ -14,5 +14,4 @@ class CreateMixin:
             create_model=create_model,
         )
         self.include_router(create, **kwargs)
-        self.crudapi_routers["create"] = create
         return create

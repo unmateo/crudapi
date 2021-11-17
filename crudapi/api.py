@@ -26,7 +26,6 @@ class CrudAPI(FastAPI, SearchMixin, UpdateMixin, CreateMixin, DeleteMixin):
             "prefix": f"/{table}",
             "tags": [title],
         }
-        self.crudapi_routers = {}
         create_model = create_model or response_model
         update_model = update_model or UpdateModel(create_model)
         self.search_router(

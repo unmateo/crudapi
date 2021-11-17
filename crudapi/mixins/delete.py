@@ -10,5 +10,4 @@ class DeleteMixin:
         delete = DeleteRouter()
         delete.map_routes(orm_model=orm_model, response_model=response_model)
         self.include_router(delete, **kwargs)
-        self.crudapi_routers["delete"] = delete
         return delete
