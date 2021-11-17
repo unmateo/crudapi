@@ -38,8 +38,7 @@ def test_put(client):
     id = created.get("id")
     # puts
     fields = {"title": "APIs for experts", "author_id": "sarasa"}
-    patched = client.put(f"/books/{id}", json=fields).json()
-    assert patched == 1
+    client.put(f"/books/{id}", json=fields).json()
     # asserts
     response = client.get(f"/books/{id}").json()
     assert response.get("updated_at") > created.get("updated_at")

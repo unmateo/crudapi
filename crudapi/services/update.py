@@ -14,11 +14,3 @@ class UpdateService:
         db.refresh(instance)
         logger.info(f"Updated {instance}")
         return instance
-
-    def put(self, db, id, fields, *args, **kwargs) -> int:
-        """ """
-        updated = db.query(self.model).filter_by(id=id).update(fields)
-        if updated == 0:
-            raise NotFound()
-        logger.info(f"Replaced <{id}> {fields}")
-        return updated

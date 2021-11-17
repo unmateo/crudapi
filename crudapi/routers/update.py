@@ -49,6 +49,14 @@ class UpdateRouter(APIRouter):
         """Replace an instance."""
 
         def _put(id: str, fields: replace_model, db=Depends(db)):
-            return self.update_service.put(db, id, fields.dict())
+            instance = self.search_service.get_one(db, id)
+            exclusions = {
+                "id": ...,
+                "created_at": ...,
+                "updated_at": ...,
+            }
+            return self.update_service.update(
+                db, instance, fields.dict(exclude=exclusions)
+            )
 
         return _put
