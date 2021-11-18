@@ -5,3 +5,4 @@ test.db
 .coverage
 coverage.xml
 dist
+.env
