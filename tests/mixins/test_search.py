@@ -7,32 +7,32 @@ from crudapi import SearchMixin
 
 def test_get_one(test_model, given_search_mixin_app_client):
     client = given_search_mixin_app_client
-    response = client.get(f"/testmodel/{test_model.id}").json()
+    response = client.get(f"/simplemodel/{test_model.id}").json()
     assert_response_is_expected_model(response, test_model)
 
 
 def test_get_all(test_model, given_search_mixin_app_client):
 
     client = given_search_mixin_app_client
-    response = client.get(f"/testmodel").json()[0]
+    response = client.get(f"/simplemodel").json()[0]
     assert_response_is_expected_model(response, test_model)
 
 
 @fixture
-def test_model(db, TestModel):
-    model = TestModel(field="test")
+def test_model(db, SimpleModel):
+    model = SimpleModel(field="test")
     db.add(model)
     db.commit()
     return model
 
 
 @fixture
-def given_search_mixin_app_client(TestModel):
+def given_search_mixin_app_client(SimpleModel):
     class TestAPI(FastAPI, SearchMixin):
         pass
 
     app = TestAPI()
-    app.search_router(TestModel)
+    app.search_router(SimpleModel)
     client = TestClient(app)
     return client
 

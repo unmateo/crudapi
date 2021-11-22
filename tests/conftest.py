@@ -9,12 +9,12 @@ from crudapi.core.database import get_session
 from samples.apps.authors import Authors
 from samples.apps.books import Books
 from samples.apps.library import Library
-from samples.models import TestModel as _TestModel
+from samples.models import SimpleModel as _SimpleModel
 
 
 @fixture
-def TestModel():
-    return _TestModel
+def SimpleModel():
+    return _SimpleModel
 
 
 @fixture

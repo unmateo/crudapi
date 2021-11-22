@@ -13,7 +13,7 @@ from sqlmodel import Field
 from sqlmodel import SQLModel
 
 from crudapi import CrudAPI
-from crudapi.models import BaseModel
+from crudapi import BaseModel
 
 
 class BookUpdate(SQLModel, table=False):

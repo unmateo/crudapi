@@ -8,10 +8,6 @@ from sqlmodel import SQLModel
 from crudapi.models import BaseModel
 
 
-class TestModel(BaseModel, table=True):
-    field: str = Field()
-
-
 class BookUpdate(SQLModel, table=False):
 
     description: Optional[str] = Field(nullable=True)
