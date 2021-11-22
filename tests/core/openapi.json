@@ -185,7 +185,7 @@
                 "tags": ["Authors"],
                 "summary": "Delete an instance.",
                 "description": "Delete an instance.",
-                "operationId": "method_authors__id__delete",
+                "operationId": "delete_authors__id__delete",
                 "parameters": [{
                     "required": true,
                     "schema": {
@@ -446,7 +446,7 @@
                 "tags": ["Books"],
                 "summary": "Delete an instance.",
                 "description": "Delete an instance.",
-                "operationId": "method_books__id__delete",
+                "operationId": "delete_books__id__delete",
                 "parameters": [{
                     "required": true,
                     "schema": {
