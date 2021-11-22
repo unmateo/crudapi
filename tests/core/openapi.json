@@ -139,7 +139,8 @@
             "put": {
                 "tags": ["Authors"],
                 "summary": "Replace an instance.",
-                "operationId": "_put_authors__id__put",
+                "description": "Replace an instance.",
+                "operationId": "put_authors__id__put",
                 "parameters": [{
                     "required": true,
                     "schema": {
@@ -220,7 +221,8 @@
             "patch": {
                 "tags": ["Authors"],
                 "summary": "Update an instance.",
-                "operationId": "_patch_authors__id__patch",
+                "description": "Update an instance.",
+                "operationId": "patch_authors__id__patch",
                 "parameters": [{
                     "required": true,
                     "schema": {
@@ -398,7 +400,8 @@
             "put": {
                 "tags": ["Books"],
                 "summary": "Replace an instance.",
-                "operationId": "_put_books__id__put",
+                "description": "Replace an instance.",
+                "operationId": "put_books__id__put",
                 "parameters": [{
                     "required": true,
                     "schema": {
@@ -479,7 +482,8 @@
             "patch": {
                 "tags": ["Books"],
                 "summary": "Update an instance.",
-                "operationId": "_patch_books__id__patch",
+                "description": "Update an instance.",
+                "operationId": "patch_books__id__patch",
                 "parameters": [{
                     "required": true,
                     "schema": {
