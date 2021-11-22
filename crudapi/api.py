@@ -16,7 +16,6 @@ class CrudAPI(FastAPI, SearchMixin, UpdateMixin, CreateMixin, DeleteMixin):
         response_model=None,
         create_model=None,
         update_model=None,
-        db=default_db,
     ):
         if self.title == "FastAPI":
             self.title = orm_model.__tablename__.capitalize()
@@ -24,7 +23,6 @@ class CrudAPI(FastAPI, SearchMixin, UpdateMixin, CreateMixin, DeleteMixin):
         self.search_router(
             orm_model=orm_model,
             response_model=response_model,
-            db=db,
         )
         self.create_router(
             orm_model=orm_model,

@@ -63,7 +63,7 @@
                 "tags": ["Authors"],
                 "summary": "Create an instance.",
                 "description": "Create an instance.",
-                "operationId": "_create_authors_post",
+                "operationId": "create_authors_post",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -322,7 +322,7 @@
                 "tags": ["Books"],
                 "summary": "Create an instance.",
                 "description": "Create an instance.",
-                "operationId": "_create_books_post",
+                "operationId": "create_books_post",
                 "requestBody": {
                     "content": {
                         "application/json": {

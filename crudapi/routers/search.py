@@ -4,14 +4,12 @@ from fastapi import APIRouter
 from fastapi import Depends
 
 from crudapi.core.paginator import BasePaginator
-from crudapi.services import SearchService
 
 
 class SearchRouter(APIRouter):
     """Augmented API Router with methods for generating default routes."""
 
-    def map_routes(self, orm_model, response_model, db):
-        service = SearchService(orm_model)
+    def map_routes(self, response_model, db, service):
         self.map_get_all(response_model=response_model, service=service, db=db)
         self.map_get_one(response_model=response_model, service=service, db=db)
 
