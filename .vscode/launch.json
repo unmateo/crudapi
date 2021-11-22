@@ -47,6 +47,16 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
+            "name": "Simple",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "samples.servers.simple:app",
+                "--reload"
+            ],
+            "envFile": "${workspaceFolder}/.env",
+        },        {
             "name": "Full Library",
             "type": "python",
             "request": "launch",
