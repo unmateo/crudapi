@@ -11,7 +11,7 @@ class CreateMixin:
         create_model=None,
         response_model=None,
         db=default_db,
-        service=None,
+        create_service=None,
         **kwargs
     ):
         """Include a default create router.
@@ -20,13 +20,13 @@ class CreateMixin:
         """
         response_model = response_model or orm_model
         create_model = create_model or response_model
-        service = service or CreateService(orm_model)
+        create_service = create_service or CreateService(orm_model)
         create = CreateRouter()
         create.map_routes(
             response_model=response_model,
             create_model=create_model,
             db=db,
-            service=service,
+            create_service=create_service,
         )
         extras = router_extras(orm_model, **kwargs)
         self.include_router(create, **extras)
