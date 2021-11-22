@@ -36,6 +36,17 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
+            "name": "Likes",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "samples.servers.likes:app",
+                "--reload"
+            ],
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
             "name": "Full Library",
             "type": "python",
             "request": "launch",

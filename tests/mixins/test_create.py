@@ -8,17 +8,17 @@ from crudapi import CreateMixin
 def test_create_one(given_create_mixin_app_client):
     test_model = {"field": "field"}
     client = given_create_mixin_app_client
-    response = client.post(f"/testmodel", json=test_model).json()
+    response = client.post(f"/simplemodel", json=test_model).json()
     assert_response_is_expected_model(response, test_model)
 
 
 @fixture
-def given_create_mixin_app_client(TestModel):
+def given_create_mixin_app_client(SimpleModel):
     class TestAPI(FastAPI, CreateMixin):
         pass
 
     app = TestAPI()
-    app.create_router(TestModel)
+    app.create_router(SimpleModel)
     client = TestClient(app)
     return client
 

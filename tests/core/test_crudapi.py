@@ -7,10 +7,10 @@ from crudapi import CrudAPI
 OPENAPI = "tests/core/openapi.json"
 
 
-def test_defaults(TestModel):
+def test_defaults(SimpleModel):
 
     app = CrudAPI()
-    app.include_model(TestModel)
+    app.include_model(SimpleModel)
 
 
 def test_multiapp_openapi(client):
