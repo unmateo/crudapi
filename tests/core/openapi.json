@@ -7,42 +7,38 @@
     "paths": {
         "/authors": {
             "get": {
-                "tags": [
-                    "Authors"
-                ],
+                "tags": ["Authors"],
                 "summary": "Retrieve all instances.",
                 "description": "Retrieve all instances with pagination.",
-                "operationId": "method_authors_get",
+                "operationId": "get_all_authors_get",
                 "parameters": [{
-                        "required": false,
-                        "schema": {
-                            "title": "Limit",
-                            "minimum": 0,
-                            "type": "integer",
-                            "default": 10
-                        },
-                        "name": "limit",
-                        "in": "query"
+                    "required": false,
+                    "schema": {
+                        "title": "Limit",
+                        "minimum": 0.0,
+                        "type": "integer",
+                        "default": 10
                     },
-                    {
-                        "required": false,
-                        "schema": {
-                            "title": "Offset",
-                            "minimum": 0,
-                            "type": "integer",
-                            "default": 0
-                        },
-                        "name": "offset",
-                        "in": "query"
-                    }
-                ],
+                    "name": "limit",
+                    "in": "query"
+                }, {
+                    "required": false,
+                    "schema": {
+                        "title": "Offset",
+                        "minimum": 0.0,
+                        "type": "integer",
+                        "default": 0
+                    },
+                    "name": "offset",
+                    "in": "query"
+                }],
                 "responses": {
                     "200": {
                         "description": "Successful Response",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "title": "Response Method Authors Get",
+                                    "title": "Response Get All Authors Get",
                                     "type": "array",
                                     "items": {
                                         "$ref": "#/components/schemas/AuthorResponse"
@@ -64,9 +60,7 @@
                 }
             },
             "post": {
-                "tags": [
-                    "Authors"
-                ],
+                "tags": ["Authors"],
                 "summary": "Create an instance.",
                 "description": "Create an instance.",
                 "operationId": "_create_authors_post",
@@ -106,12 +100,10 @@
         },
         "/authors/{id}": {
             "get": {
-                "tags": [
-                    "Authors"
-                ],
+                "tags": ["Authors"],
                 "summary": "Retrieve one instance.",
                 "description": "Retrieve an instance.",
-                "operationId": "method_authors__id__get",
+                "operationId": "get_one_authors__id__get",
                 "parameters": [{
                     "required": true,
                     "schema": {
@@ -145,9 +137,7 @@
                 }
             },
             "put": {
-                "tags": [
-                    "Authors"
-                ],
+                "tags": ["Authors"],
                 "summary": "Replace an instance.",
                 "operationId": "_put_authors__id__put",
                 "parameters": [{
@@ -191,9 +181,7 @@
                 }
             },
             "delete": {
-                "tags": [
-                    "Authors"
-                ],
+                "tags": ["Authors"],
                 "summary": "Delete an instance.",
                 "description": "Delete an instance.",
                 "operationId": "method_authors__id__delete",
@@ -230,9 +218,7 @@
                 }
             },
             "patch": {
-                "tags": [
-                    "Authors"
-                ],
+                "tags": ["Authors"],
                 "summary": "Update an instance.",
                 "operationId": "_patch_authors__id__patch",
                 "parameters": [{
@@ -280,42 +266,38 @@
         },
         "/books": {
             "get": {
-                "tags": [
-                    "Books"
-                ],
+                "tags": ["Books"],
                 "summary": "Retrieve all instances.",
                 "description": "Retrieve all instances with pagination.",
-                "operationId": "method_books_get",
+                "operationId": "get_all_books_get",
                 "parameters": [{
-                        "required": false,
-                        "schema": {
-                            "title": "Limit",
-                            "minimum": 0,
-                            "type": "integer",
-                            "default": 10
-                        },
-                        "name": "limit",
-                        "in": "query"
+                    "required": false,
+                    "schema": {
+                        "title": "Limit",
+                        "minimum": 0.0,
+                        "type": "integer",
+                        "default": 10
                     },
-                    {
-                        "required": false,
-                        "schema": {
-                            "title": "Offset",
-                            "minimum": 0,
-                            "type": "integer",
-                            "default": 0
-                        },
-                        "name": "offset",
-                        "in": "query"
-                    }
-                ],
+                    "name": "limit",
+                    "in": "query"
+                }, {
+                    "required": false,
+                    "schema": {
+                        "title": "Offset",
+                        "minimum": 0.0,
+                        "type": "integer",
+                        "default": 0
+                    },
+                    "name": "offset",
+                    "in": "query"
+                }],
                 "responses": {
                     "200": {
                         "description": "Successful Response",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "title": "Response Method Books Get",
+                                    "title": "Response Get All Books Get",
                                     "type": "array",
                                     "items": {
                                         "$ref": "#/components/schemas/BookResponse"
@@ -337,9 +319,7 @@
                 }
             },
             "post": {
-                "tags": [
-                    "Books"
-                ],
+                "tags": ["Books"],
                 "summary": "Create an instance.",
                 "description": "Create an instance.",
                 "operationId": "_create_books_post",
@@ -379,12 +359,10 @@
         },
         "/books/{id}": {
             "get": {
-                "tags": [
-                    "Books"
-                ],
+                "tags": ["Books"],
                 "summary": "Retrieve one instance.",
                 "description": "Retrieve an instance.",
-                "operationId": "method_books__id__get",
+                "operationId": "get_one_books__id__get",
                 "parameters": [{
                     "required": true,
                     "schema": {
@@ -418,9 +396,7 @@
                 }
             },
             "put": {
-                "tags": [
-                    "Books"
-                ],
+                "tags": ["Books"],
                 "summary": "Replace an instance.",
                 "operationId": "_put_books__id__put",
                 "parameters": [{
@@ -464,9 +440,7 @@
                 }
             },
             "delete": {
-                "tags": [
-                    "Books"
-                ],
+                "tags": ["Books"],
                 "summary": "Delete an instance.",
                 "description": "Delete an instance.",
                 "operationId": "method_books__id__delete",
@@ -503,9 +477,7 @@
                 }
             },
             "patch": {
-                "tags": [
-                    "Books"
-                ],
+                "tags": ["Books"],
                 "summary": "Update an instance.",
                 "operationId": "_patch_books__id__patch",
                 "parameters": [{
@@ -632,10 +604,7 @@
             },
             "BookCreate": {
                 "title": "BookCreate",
-                "required": [
-                    "title",
-                    "author_id"
-                ],
+                "required": ["title", "author_id"],
                 "type": "object",
                 "properties": {
                     "description": {
@@ -658,10 +627,7 @@
             },
             "BookResponse": {
                 "title": "BookResponse",
-                "required": [
-                    "title",
-                    "author_id"
-                ],
+                "required": ["title", "author_id"],
                 "type": "object",
                 "properties": {
                     "id": {
@@ -715,9 +681,7 @@
             },
             "BookWithoutAuthor": {
                 "title": "BookWithoutAuthor",
-                "required": [
-                    "title"
-                ],
+                "required": ["title"],
                 "type": "object",
                 "properties": {
                     "id": {
@@ -763,11 +727,7 @@
             },
             "ValidationError": {
                 "title": "ValidationError",
-                "required": [
-                    "loc",
-                    "msg",
-                    "type"
-                ],
+                "required": ["loc", "msg", "type"],
                 "type": "object",
                 "properties": {
                     "loc": {
