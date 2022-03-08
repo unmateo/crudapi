@@ -9,9 +9,9 @@ documentation = "https://github.com/unmateo/crudapi"
 authors = ["Mateo Harfuch <mharfuch@gmail.com>"]
 
 [tool.poetry.dependencies]
-fastapi = "^0.68.1"
+fastapi = "^0.75.0"
 python = "^3.9"
-sqlmodel = "^0.0.4"
+sqlmodel = "^0.0.6"
 
 [tool.poetry.dev-dependencies]
 black = "^22.1.0"
