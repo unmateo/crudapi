@@ -2,21 +2,22 @@ default_language_version:
     python: python3.9
 repos:
     -   repo: https://github.com/pre-commit/pre-commit-hooks
-        rev: v2.3.0
+        rev: v4.1.0
         hooks:
-        -   id: end-of-file-fixer
-        -   id: trailing-whitespace
         -   id: check-docstring-first
-        -   id: requirements-txt-fixer
+        -   id: check-toml
         -   id: check-ast
         -   id: check-merge-conflict
+        -   id: debug-statements
+        -   id: end-of-file-fixer
         -   id: no-commit-to-branch
             args: ['--branch', 'master']
+        -   id: trailing-whitespace
     -   repo: https://github.com/asottile/reorder_python_imports
-        rev: v2.3.0
+        rev: v2.7.1
         hooks:
         -   id: reorder-python-imports
     -   repo: https://github.com/ambv/black
-        rev: 21.9b0
+        rev: 22.1.0
         hooks:
         -   id: black
