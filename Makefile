@@ -1,9 +1,12 @@
 include .env
+export $(shell sed 's/=.*//' .env)
 .DEFAULT_GOAL := help
 help:
 	make --help
 install:
 	poetry install
+update:
+	poetry update
 lint:
 	poetry run black .
 test:
